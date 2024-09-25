@@ -2,76 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito"/>
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello Thrift Store Project</h1>
-    <br>
-    <h2>we will starting soon......</h2>
-    <br>
-    <h3>stay in touch</h3>
-    <h1>okay </h1>
-    import { ThriftContext } from "../../context/Context"
-import styles from "./navbar.module.css"
-import {CiSearch,CiShoppingCart,CiBellOn} from "react-icons/ci"
-import {useContext} from "react"
-import SignOutPopover from "../popover/signout popover/SignOutPopover"
-import { Link } from "react-router-dom"
-import SearchModal from "../../layouts/modal/SeachModal/SearchModal"
 
-const Navbar = () => {
-    const {state:{user}} = useContext(ThriftContext)
-  return (
-    <div className={styles.navbar}>
-    <Link to={"/"} className={styles.logo}>
-        <img src="/images/logo.png" alt="logo" className={styles.logo_img} />
-        {/* <h2>Thrift treasures</h2> */}
-    </Link>
-
-   
-    <div className={styles.category}>
-
-        <SearchModal full={true}>
- 
-        <div className={styles.searchBar}>
-             <input type="text" placeholder="search" />
-            <CiSearch className={styles.searchIcon} />
-           
+    <header>
+        <div class="navbar">
+            <div class="nav-items flex-flow-row">
+                <div class="nav-item"><a><img src="images/logo.png" height="40rem" width="100rem"></a></div>
+                <div class="nav-item"><a href="listing-page/listingpage.html">Categories</a></div>
+                <div class="nav-item"><a href="listing-page/listingpage.html">Clothing</a></div>
+                <div class="nav-item"><a href="listing-page/listingpage.html">Brands</a></div>
+                <div class="nav-item"><a href="listing-page/listingpage.html">Beauty</a></div>
+                <div class="search-container">
+                    <form>
+                      <button type="submit"><i class="fa fa-search"></i></button>
+                      <input type="text" placeholder="Search.." name="search">
+                    </form>
+                  </div>
+                  <div class="nav-items-right flex-flow-row">
+                    <div class="nav-item"><a href="signup-login/signup.html"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a></div>
+                    <div class="nav-item"><a href="wishlist/wishlist.html"><i class="fa fa-heart fa-lg" aria-hidden="true"></i></a></div>
+                    <div class="nav-item"><a href="cart/cart.html"><i class="fa fa-shopping-bag fa-lg" aria-hidden="true"></i></a></div>                     
+                  </div>
+            </div>
         </div>
-        </SearchModal>
-    </div>
-    <div className={styles.others}>
-        {/* <CiBellOn className={styles.other_icons}/> */}
+    </header>
 
-       
-        {user?
-         <>
-         {/* <p>{user.username}</p> */}
-          <Link to={"/upload"} className={styles.sellButton}>
-            
-            Sell
-        </Link>
-        <Link to={"/transactions"} className={styles.myTransactions}> My Transactions</Link>
+    <section>
+        <div class="main-container">
+      
+            <img class="img-container" src="images/main.jpg">
+        </div>
 
-         <SignOutPopover>
+        <div class="card-container">
+            <div class="flex-flow-row card-items">
+                <div class="card card-component">
+                    <img class="card-img" src="images/women.jpg">
+                    <div class="card-details flex-flow-column">
+                        <h2><a>Apparel</a></h2> 
+                    </div>
+                </div>
 
-         <div className={styles.profileImgWrapper}>
-            <img className={styles.profileImg} src={user.image} alt="profile" />
-         </div>
-         </SignOutPopover>
-        </> :
-            <Link to={"/login"}>
-        <button className={styles.authButton}>Login</button>
-        </Link>
-        }
-        
-    </div>
-    </div>
-  )
-}
+            <div class="card card-component">
+                <img class="card-img" src="images/sale.jpg">
+                <span class="bestseller-badge"><h3>Flat 40% off</h3></span>
+                <div class="card-details flex-flow-column">
+                    <h2><a>Flash Sale</a></h2>
+                </div>  
+            </div>
 
-export default Navbar
+            <div class="card card-component">
+                <img class="card-img" src="images/beauty.jpg">
+                <div class="card-details flex-flow-column">
+                    <h2><a>Beauty</a></h2>
+                </div>  
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <h3>Made with 💜 by Swastika</h3>
+    </footer>
 
 </body>
 </html>
